@@ -1,11 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const SignedOutLinks = () => {
+const SignedOutLinks = props => {
     return(
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><a href="/">SignIn</a></li>
-          <li><a href="/">SignUp</a></li>
-          <li><a href="/">JavaScript</a></li>
+        <ul className="bottom">
+            <li onClick={props.closeit}><NavLink to='/'>SignIn</NavLink></li>
+            <li onClick={props.closeit}><NavLink to='/'>SignUp</NavLink></li>
         </ul>
     )
 }
