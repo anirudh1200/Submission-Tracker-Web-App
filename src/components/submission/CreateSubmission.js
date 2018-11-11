@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createSubmission } from '../../store/actions/submissionActions';
 
 class CreateSubmission extends Component{
 
@@ -17,7 +19,7 @@ class CreateSubmission extends Component{
     }
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.createSubmission(this.state);
     }
 
     render(){
@@ -47,7 +49,7 @@ class CreateSubmission extends Component{
                         <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-1">Login</button>
+                        <button className="btn pink lighten-1 z-depth-1">Add New Submission</button>
                     </div>
                 </form>
             </div>
@@ -55,4 +57,10 @@ class CreateSubmission extends Component{
     }
 }
 
-export default CreateSubmission
+const mapDispatchToProps = (dispatch) => {
+    return{
+        createSubmission: (submission) => dispatch(createSubmission(submission))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateSubmission)
