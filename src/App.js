@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navbar'
-import SideDrawer from './components/layout/SideDrawer'
-import Backdrop from './components/backdrop/Backdrop'
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
+import SideDrawer from './components/layout/SideDrawer';
+import Backdrop from './components/backdrop/Backdrop';
+import Dashboard from './components/dashboard/Dashboard';
+import SubmissionDetails from './components/submission/SubmissionDetails';
 import './index.css'
 
 class App extends Component {
@@ -33,6 +35,10 @@ class App extends Component {
           <BrowserRouter>
               <div className="App" style={{height: '100%'}}>
                 <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+                <Switch>
+                    <Route exact path='/' component={Dashboard} />
+                    <Route path='/submission/:id' component={SubmissionDetails} />
+                </Switch>
                 <SideDrawer show={this.state.sideDrawerOpen} closeit={this.backdropClickHandler} />
                 {backdrop}
               </div>
