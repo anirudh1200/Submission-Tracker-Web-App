@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Signin extends Component{
 
     state = {
-        name: '',
+        username: '',
         password: ''
     }
 
@@ -23,8 +23,8 @@ class Signin extends Component{
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-4">Sign In</h5>
                     <div className="input-field">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name" onChange={this.handleChange} />
+                        <label htmlFor="username">Username</label>
+                        <input type="text" id="username" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>

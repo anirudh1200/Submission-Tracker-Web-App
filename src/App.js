@@ -6,6 +6,7 @@ import Backdrop from './components/backdrop/Backdrop';
 import Dashboard from './components/dashboard/Dashboard';
 import SubmissionDetails from './components/submission/SubmissionDetails';
 import Signin from './components/auth/Signin';
+import Signup from './components/auth/Signup';
 import './index.css'
 
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
                     <Route exact path='/' component={Dashboard} />
                     <Route path='/submission/:id' component={SubmissionDetails} />
                     <Route path='/signin' component={Signin} />
+                    <Route path='/signup' component={Signup} />
                 </Switch>
                 <SideDrawer show={this.state.sideDrawerOpen} closeit={this.backdropClickHandler} />
                 {backdrop}
