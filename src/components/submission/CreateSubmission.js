@@ -6,7 +6,7 @@ class CreateSubmission extends Component{
         title: '',
         subject: '',
         date: '',
-        time: '',
+        time: 'Not Specified',                  //just default incase no time is entered
         content: ''
     }
 
@@ -38,7 +38,7 @@ class CreateSubmission extends Component{
                         <input type="date" id="date" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
-                        <label htmlFor="time">Time</label>
+                        <label htmlFor="time" placeholder="Not Specified">Time</label>
                         <input type="text" id="time" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
