@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    max-width: 400px;
     width: 65%;
     z-index: 200;
     transform: translateX(-100%);

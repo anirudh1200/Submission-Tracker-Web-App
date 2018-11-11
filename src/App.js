@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import SubmissionDetails from './components/submission/SubmissionDetails';
 import Signin from './components/auth/Signin';
 import Signup from './components/auth/Signup';
+import CreateSubmission from './components/submission/CreateSubmission';
 import './index.css'
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
                     <Route path='/submission/:id' component={SubmissionDetails} />
                     <Route path='/signin' component={Signin} />
                     <Route path='/signup' component={Signup} />
+                    <Route path='/create' component={CreateSubmission} />
                 </Switch>
                 <SideDrawer show={this.state.sideDrawerOpen} closeit={this.backdropClickHandler} />
                 {backdrop}
