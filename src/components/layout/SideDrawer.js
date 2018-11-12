@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 import './SideDrawer.css'
+import { connect } from 'react-redux';
+import { signIn } from '../../store/actions/authActions';
 
 const SideDrawer = props => {
 
@@ -10,7 +12,6 @@ const SideDrawer = props => {
     if(props.show){
             drawerClasses = 'side-drawer open';
     }
-
     return(
         <nav className={drawerClasses}>
             <ul>
@@ -20,9 +21,15 @@ const SideDrawer = props => {
                 <li onClick={props.closeit}><NavLink to='/'>Test4</NavLink></li>
             </ul>
             <SignedOutLinks closeit={props.closeit} />
-            <SignedInLinks closeit={props.closeit} />
+
         </nav>
     )
 }
 
-export default SideDrawer;
+const mapStateToProps = (state) => {
+    return{
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(SideDrawer);

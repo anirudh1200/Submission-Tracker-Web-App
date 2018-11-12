@@ -3,6 +3,7 @@ import Summary from '../submission/Summary';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component{
     render(){
@@ -12,7 +13,9 @@ class Dashboard extends Component{
                 <div className="project-list section">
                     {submissions && submissions.map(submission => {
                         return(
-                            <Summary submission={submission} key={submission.id} />
+                            <Link to={'/submission/'+submission.id} key={submission.id}>
+                                <Summary submission={submission} key={submission.id} />
+                            </Link>
                         )
                     })}
                 </div>
@@ -22,7 +25,6 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return{
         submissions: state.firestore.ordered.submissions
     }
